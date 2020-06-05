@@ -4,6 +4,8 @@ on = 1
 contSoma= preçoFim = 0
 listaProdutos = []
 while on != 2:
+
+    #inicia ou finalisa o programa
     on = int(input('''        ╔═══════════════════════════════╗
         ║[1]Abrir o caixa para pagamento║
         ║[2] Finalizar Programa         ║
@@ -11,6 +13,8 @@ while on != 2:
 Oque deseja? '''))
     if on == 1:
         while True:
+
+            #fala qual é o produto vendido e o valor
             produto = str(input('Qual Produto? ')).title().strip()
             preço = desconto = float(input('Qual valor do produto?(valores com virgula use ".") R$'))
             listaProdutos.append(produto)
@@ -26,6 +30,8 @@ Oque deseja? '''))
                     break
             if onn in 'Nn':
                 break
+
+            #escolhe a forma de pagamento
         pagamento = int(input('''        ╔══════ FORMAS DE PAGAMENTO ══════╗
         ║[1] Avista Dinheiro/Cheque(-10%) ║
         ║[2] Avista no cartão(-5%)        ║ 
@@ -35,6 +41,8 @@ Oque deseja? '''))
 Qual opção de pagamento? '''))
         while True:
             if pagamento == 1:
+                #Pagamento em Dinheiro
+
                 desconto -= preçoFim * 0.10
                 print('Produto ganha desconto de 10% e vai de R${}, para R${}'.format(preçoFim, desconto))
                 valor = float(input('Valor recebido: '))
@@ -49,6 +57,7 @@ Qual opção de pagamento? '''))
                         troco -= ced
                         total += 1
                     else:
+                        # sistema de Troco para o cliente
                         if total != 0:
                             if ced >= 2:
                                 print(f'{total} notas de R${ced}')
@@ -97,6 +106,7 @@ Qual opção de pagamento? '''))
                 listaProdutos = []
                 break
             elif pagamento == 2:
+                #Pagamento em avista no cartão
                 desconto -= preçoFim * 0.05
                 print('Produto ganha desconto de 5% e vai de R${}, para R${}'.format(preçoFim, desconto))
                 print('Volte sempre')
@@ -106,6 +116,7 @@ Qual opção de pagamento? '''))
                 listaProdutos = []
                 break
             elif pagamento == 3:
+                #Pagamneto em 2x
                 print('Preço R${}'.format(preçoFim))
                 print('Imprimindo Comprovante')
                 sleep(3)
@@ -127,6 +138,7 @@ Qual opção de pagamento? '''))
                 listaProdutos = []
                 break
             elif pagamento == 4:
+                #Pagamneto em 3x ou mais
                 juros = preçoFim * 0.20
                 print('Produto fica 20% de juros. De R${} para R${}'.format(preçoFim, (preçoFim + juros)))
                 print('Volte sempre')
@@ -136,6 +148,7 @@ Qual opção de pagamento? '''))
                 listaProdutos = []
                 break
             elif pagamento > 4 or 0 >= pagamento:
+                #lupera para recoção de erros na ecolha do pagamento
                 erro = str(input('\033[1;31mOpção invalida!!!\033[m Quer tentar novamente[S/N]: ')).upper().strip()[0]
                 if erro in "Ss":
                     pagamento = int(input('''        ╔══════ FORMAS DE PAGAMENTO ══════╗
