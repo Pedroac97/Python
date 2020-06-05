@@ -93,6 +93,8 @@ Qual opção de pagamento? '''))
                 print('-' * 40)
                 print('~~' * 25)
                 sleep(3)
+                preçoFim = 0
+                listaProdutos = []
                 break
             elif pagamento == 2:
                 desconto -= preçoFim * 0.05
@@ -100,6 +102,8 @@ Qual opção de pagamento? '''))
                 print('Volte sempre')
                 sleep(3)
                 print('~~' * 25)
+                preçoFim = 0
+                listaProdutos = []
                 break
             elif pagamento == 3:
                 print('Preço R${}'.format(preçoFim))
@@ -119,6 +123,8 @@ Qual opção de pagamento? '''))
                 print('-' * 40)
                 print('~~' * 25)
                 sleep(3)
+                preçoFim = 0
+                listaProdutos = []
                 break
             elif pagamento == 4:
                 juros = preçoFim * 0.20
@@ -126,6 +132,8 @@ Qual opção de pagamento? '''))
                 print('Volte sempre')
                 sleep(3)
                 print('~~' * 25)
+                preçoFim = 0
+                listaProdutos = []
                 break
             elif pagamento > 4 or 0 >= pagamento:
                 erro = str(input('\033[1;31mOpção invalida!!!\033[m Quer tentar novamente[S/N]: ')).upper().strip()[0]
